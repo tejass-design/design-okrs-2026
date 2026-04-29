@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Product Design OKRs — 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: oklch(0.972 0.008 82);
+    --bg-soft: oklch(0.945 0.012 82);
+    --paper: oklch(0.985 0.006 82);
+    --ink: oklch(0.21 0.012 60);
+    --ink-soft: oklch(0.36 0.012 60);
+    --muted: oklch(0.58 0.012 60);
+    --rule: oklch(0.86 0.012 70);
+    --accent: oklch(0.58 0.13 38);
+    --accent-soft: oklch(0.92 0.04 50);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  html { background: var(--bg); }
+  body {
+    font-family: "Geist", ui-sans-serif, system-ui, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    line-height: 1.5;
+    font-size: 16px;
+    overflow-x: hidden;
+  }
+
+  .serif { font-family: "Newsreader", ui-serif, Georgia, serif; font-weight: 400; }
+  .mono  { font-family: "Geist Mono", ui-monospace, monospace; }
+
+  /* Subtle paper grain — pure CSS, no image */
+  body::before {
+    content: "";
+    position: fixed; inset: 0;
+    background:
+      radial-gradient(1200px 700px at 80% -10%, oklch(0.96 0.04 60 / 0.45), transparent 60%),
+      radial-gradient(900px 600px at -10% 110%, oklch(0.95 0.03 80 / 0.35), transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  main { position: relative; z-index: 1; max-width: 1180px; margin: 0 auto; padding: 64px 72px 120px; }
+
+  /* —— Header —— */
+  .topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted);
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .topbar .dot {
+    display: inline-block; width: 7px; height: 7px; border-radius: 50%;
+    background: var(--accent); margin-right: 10px; vertical-align: middle;
+    transform: translateY(-1px);
+  }
+
+  /* —— Hero —— */
+  .hero { padding: 88px 0 56px; }
+  .eyebrow {
+    font-family: "Geist Mono", monospace;
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 28px;
+  }
+  h1.title {
+    font-family: "Newsreader", serif;
+    font-weight: 300;
+    font-size: clamp(56px, 8.4vw, 128px);
+    line-height: 0.96;
+    letter-spacing: -0.025em;
+    margin: 0;
+    color: var(--ink);
+    text-wrap: balance;
+  }
+  h1.title em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--accent);
+  }
+  .hero-meta {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    border-top: 1px solid var(--rule);
+    padding-top: 28px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .hero-meta div span { display: block; color: var(--ink); margin-top: 4px; font-size: 14px; }
+
+  /* —— North Star —— */
+  .north {
+    margin-top: 96px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    padding: 56px 64px;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 40px;
+    align-items: start;
+    position: relative;
+  }
+  .north .label {
+    font-family: "Geist Mono", monospace;
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .north .label::before {
+    content: "✦";
+    display: block;
+    font-family: "Newsreader", serif;
+    font-size: 22px;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+  .north p {
+    font-family: "Newsreader", serif;
+    font-size: clamp(28px, 2.6vw, 38px);
+    line-height: 1.28;
+    margin: 0;
+    color: var(--ink);
+    font-weight: 300;
+    letter-spacing: -0.01em;
+    text-wrap: pretty;
+  }
+  .north p .pull { color: var(--accent); font-style: italic; }
+
+  /* —— Section header —— */
+  .section-head {
+    margin-top: 128px;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 40px;
+    align-items: baseline;
+  }
+  .section-head .index {
+    font-family: "Geist Mono", monospace;
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .section-head h2 {
+    font-family: "Newsreader", serif;
+    font-weight: 300;
+    font-size: clamp(38px, 4.4vw, 64px);
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px 0;
+    color: var(--ink);
+    text-wrap: balance;
+  }
+  .section-head h2 em { font-style: italic; color: var(--accent); font-weight: 300; }
+  .section-head .intent {
+    font-family: "Newsreader", serif;
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 22px;
+    line-height: 1.45;
+    max-width: 620px;
+    margin: 0;
+  }
+
+  /* —— KR grid —— */
+  .krs {
+    margin-top: 56px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .kr {
+    padding: 44px 28px 36px;
+    border-right: 1px solid var(--rule);
+    position: relative;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: 18px;
+    min-height: 320px;
+  }
+  .kr:last-child { border-right: 0; }
+  .kr .num {
+    font-family: "Geist Mono", monospace;
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .kr .hero-num {
+    font-family: "Newsreader", serif;
+    font-weight: 300;
+    font-size: 96px;
+    line-height: 0.92;
+    letter-spacing: -0.04em;
+    color: var(--ink);
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+  }
+  .kr .hero-num .unit {
+    font-size: 32px;
+    color: var(--accent);
+    font-style: italic;
+    letter-spacing: -0.01em;
+    line-height: 1;
+  }
+  .kr .hero-num.text {
+    font-size: 56px;
+    line-height: 1;
+    font-style: italic;
+    color: var(--accent);
+  }
+  .kr .copy {
+    margin-top: 0;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 28ch;
+  }
+  .kr .copy strong { color: var(--ink); font-weight: 500; }
+
+  /* In-view animation */
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity 900ms ease, transform 900ms cubic-bezier(.2,.7,.2,1); }
+  .reveal.in { opacity: 1; transform: none; }
+  .kr .hero-num { transition: opacity 1200ms ease 120ms; }
+  .kr.reveal .hero-num { opacity: 0; }
+  .kr.reveal.in .hero-num { opacity: 1; }
+
+  /* —— Closing rail —— */
+  .footer {
+    margin-top: 128px;
+    padding-top: 36px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .footer .sig {
+    font-family: "Newsreader", serif;
+    font-style: italic;
+    font-size: 22px;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--ink);
+  }
+
+  /* —— Responsive —— */
+  @media (max-width: 980px) {
+    main { padding: 40px 32px 80px; }
+    .north, .section-head { grid-template-columns: 1fr; gap: 20px; }
+    .north { padding: 36px 32px; }
+    .krs { grid-template-columns: repeat(2, 1fr); }
+    .kr { border-right: 1px solid var(--rule); }
+    .kr:nth-child(2n) { border-right: 0; }
+    .kr:nth-child(1), .kr:nth-child(2) { border-bottom: 1px solid var(--rule); }
+    .kr .hero-num { font-size: 72px; }
+  }
+  @media (max-width: 560px) {
+    .krs { grid-template-columns: 1fr; }
+    .kr { border-right: 0; border-bottom: 1px solid var(--rule); }
+    .kr:last-child { border-bottom: 0; }
+    .hero-meta { grid-template-columns: 1fr; gap: 14px; }
+  }
+
+  ::selection { background: var(--accent-soft); color: var(--ink); }
+</style>
+</head>
+<body>
+<main>
+
+  <!-- Topbar -->
+  <header class="topbar">
+    <div><span class="dot"></span>Product Design · 2026</div>
+    <div>One-pager · v1</div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" style="padding: 88px 0px 0px">
+    <div class="eyebrow reveal">Product Design OKRs · 2026</div>
+    <h1 class="title reveal" style="font-size: 84px">A year of confidence in the&nbsp;craft.</h1>
+
+    <div class="hero-meta reveal">
+      <div>Horizon<span>Jan – Dec 2026</span></div>
+      <div>Objectives<span>Two, focused</span></div>
+      <div>Measure<span>Four key results each</span></div>
+    </div>
+  </section>
+
+  <!-- North Star -->
+  <section class="north reveal">
+    <div class="label">Design<br/>North Star</div>
+    <p>
+      Craft workflows that feel <span class="pull">intuitive, predictable, and in&nbsp;control</span> — so users can move through complex tasks without friction or second-guessing.
+    </p>
+  </section>
+
+  <!-- Objective 1 -->
+  <section>
+    <div class="section-head">
+      <div class="index reveal">Objective 01</div>
+      <div>
+        <h2 class="reveal">Drive consistency in <em>interaction</em> and behaviour.</h2>
+        <p class="intent reveal">The product should behave predictably across every workflow — what users learn once, they should be able to trust everywhere.</p>
+      </div>
+    </div>
+
+    <div class="krs">
+      <div class="kr reveal">
+        <div class="num">KR 1.1</div>
+        <div class="hero-num"><span data-target="100">0</span><span class="unit">%</span></div>
+        <div class="copy"><strong>Standardise core interaction patterns</strong> — selection, editing, feedback and states across the product.</div>
+      </div>
+      <div class="kr reveal">
+        <div class="num">KR 1.2</div>
+        <div class="hero-num">−<span data-target="40">0</span><span class="unit">%</span></div>
+        <div class="copy"><strong>Fewer design inconsistencies</strong> surfaced in QA and usability reviews, year over year.</div>
+      </div>
+      <div class="kr reveal">
+        <div class="num">KR 1.3</div>
+        <div class="hero-num"><span data-target="100">0</span><span class="unit">%</span></div>
+        <div class="copy"><strong>Design system adoption</strong> in every shipped feature — no one-off components in production.</div>
+      </div>
+      <div class="kr reveal">
+        <div class="num">KR 1.4</div>
+        <div class="hero-num text" style="font-size: 40px">Should be<br/>felt</div>
+        <div class="copy"><strong style="font-weight: 500">Improve perceived product polish and consistency</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Objective 2 -->
+  <section>
+    <div class="section-head">
+      <div class="index reveal">Objective 02</div>
+      <div>
+        <h2 class="reveal">Improve discoverability without adding <em>cognitive load</em>.</h2>
+        <p class="intent reveal">Features should be easy to find when needed, and quietly out of the way when they're not.</p>
+      </div>
+    </div>
+
+    <div class="krs">
+      <div class="kr reveal">
+        <div class="num">KR 2.1</div>
+        <div class="hero-num">↑<span data-target="" class="unit" style="font-size:32px;color:var(--accent);font-style:italic;margin-left:6px;">found</span></div>
+        <div class="copy"><strong>Increase discoverability</strong> of key features, measured through task-completion data</div>
+      </div>
+      <div class="kr reveal">
+        <div class="num">KR 2.2</div>
+        <div class="hero-num">−<span data-target="40">0</span><span class="unit">%</span></div>
+        <div class="copy"><strong>Less feature blindness</strong><br/>users notice and use what's already there.</div>
+      </div>
+      <div class="kr reveal">
+        <div class="num">KR 2.3</div>
+        <div class="hero-num text">Reduce</div>
+        <div class="copy"><strong>Reduce cognitive load while improving discoverability</strong><br/>Easier to find ≠ louder.</div>
+      </div>
+      <div class="kr reveal">
+        <div class="num">KR 2.4</div>
+        <div class="hero-num"><span data-target="2">0</span><span class="unit">–3</span></div>
+        <div class="copy"><strong>Steps to any advanced feature</strong> — every power tool reachable within two-to-three logical moves.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div>End of one-pager</div>
+    <div class="sig">Product Design, 2026</div>
+    <div>Quiet · Predictable · In control</div>
+  </footer>
+
+</main>
+
+<script>
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        // Animate numbers when KR card reveals
+        if (e.target.classList.contains('kr')) {
+          e.target.querySelectorAll('[data-target]').forEach(animateNum);
+        }
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.18, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+  function animateNum(el) {
+    const target = parseInt(el.getAttribute('data-target'), 10);
+    if (!Number.isFinite(target) || target === 0) { el.textContent = el.getAttribute('data-target') || el.textContent; return; }
+    const dur = 1100;
+    const start = performance.now();
+    function tick(now) {
+      const t = Math.min(1, (now - start) / dur);
+      const eased = 1 - Math.pow(1 - t, 3);
+      el.textContent = Math.round(target * eased);
+      if (t < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  // Stagger reveals lightly via CSS variable
+  document.querySelectorAll('.reveal').forEach((el, i) => {
+    el.style.transitionDelay = (Math.min(i, 8) * 60) + 'ms';
+  });
+</script>
+
+</body>
+</html>
